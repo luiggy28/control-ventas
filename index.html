@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Control de ventas</title>
+</head>
+
+<body>
+    <section class="contenedor__principal">
+        <h1>La Casa de los Viajes</h1>
+        <h2>Control de ventas</h2>
+            <section class="colaborador">
+                <h3>Datos Colaborador</h3>
+                <label>Nombre:
+                    <input type="text" id="nombreColaborador">
+                </label>
+                <br>
+        
+                <label>Apellido:
+                    <input type="text" id="apellidoColaborador">
+                </label>
+                <br>
+            </section>
+
+            <section class="cliente">
+                <h3>Datos Cliente</h3>
+                <label>Nombre:
+                    <input type="text" id="nombreCliente">
+                </label>
+                <br>
+        
+                <label>Apellido:
+                    <input type="text" id="apellidoCliente">
+                </label>
+                <br>
+            </section>
+
+            <section>
+                <h3>Datos de venta</h3>
+                <label>Tipo de Servicio:
+                    <select id="tipoServicio">
+                        <option value="Venta TKT">Venta TKT</option>
+                        <option value="Venta Hotel">Venta Hotel</option>
+                        <option value="Venta Seguro">Venta Seguro</option>
+                        <option value="Solicitud de visa">Solicitud de visa</option>
+                        <option value="Solicitud de antecedentes">Solicitud de antecedentes</option>
+                        <option value="Nacionalización">Nacionalización</option>
+                        <option value="Apostillado de documento">Apostillado de documento</option>
+                        <option value="Prorroga de turismo">Prorroga de turismo</option>
+                        <option value="Redacción de contrato">Redacción de contrato</option>
+                        <option value="Otros servicios">Otros servicios</option>
+                    </select>
+                </label>
+                <br>
+        
+                <label>Valor Bruto:
+                    <input type="number" id="valorBruto">
+                </label>
+                <br>
+        
+                <label>Valor Venta al Público:
+                    <input type="number" id="valorVentaPublico">
+                </label>
+                <br>
+        
+                <label>Medio de Pago:
+                    <select id="medioPago">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Transferencia">Transferencia</option>
+                        <option value="Tarjeta Debito">Tarjeta Débito</option>
+                        <option value="Tarjeta Credito">Tarjeta Crédito</option>
+                    </select>
+                </label>
+                <br>
+        
+                <label>Incluir IVA:
+                    <input type="checkbox" id="incluirIVA">
+                </label>
+                <br>
+        
+                <label>Valor IVA:
+                    <input type="text" id="valorIVA" readonly>
+                </label>
+                <br>
+        
+                <label>Comisión Pago Débito:
+                    <input type="text" id="valorPagoDebito" readonly>
+                </label>
+                <br>
+        
+                <label>Comisión Pago Crédito:
+                    <input type="text" id="valorPagoCredito" readonly>
+                </label>
+                <br>
+        
+                <label>Comisión Total:
+                    <input type="text" id="comisionTotal" readonly>
+                </label>
+                <br>
+        
+                <label>Comisión Colaborador:
+                    <input type="text" id="comisionColaborador" readonly>
+                </label>
+                <br>
+        
+                <label>Comisión Empresa:
+                    <input type="text" id="comisionEmpresa" readonly>
+                </label>
+                <br>
+                
+                <label>Valor Total a Pagar:
+                    <input type="text" id="valorTotalPagar" readonly>
+                </label>
+                <br>
+
+            </section>
+        
+
+        
+
+        <button id="guardar">Guardar venta</button>
+    </section>
+    
+
+    <script src="main.js"></script>
+</body>
+
+</html>
