@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-
     const medioPago = document.getElementById("medioPago");
     medioPago.addEventListener('change', calcularValores);
 
@@ -35,7 +34,7 @@ function calcularValores() {
         comisionCredito = 0.045 * valorVentaPublico;
     }
 
-    const comisionTotalBruta = valorVentaPublico - valorBruto - comisionDebito - comisionCredito;
+    const comisionTotalBruta = valorVentaPublico - valorBruto;
 
     let valorIVAValue = 0;
     let comisionTotalSinIVA = comisionTotalBruta;
@@ -59,13 +58,13 @@ function calcularValores() {
     document.getElementById("valorTotalPagar").value = formatCurrency(totalPagar);
 }
 
-
 function guardarVenta() {
     const nombreColaborador = document.getElementById("nombreColaborador").value.trim().toUpperCase();
     const apellidoColaborador = document.getElementById("apellidoColaborador").value.trim().toUpperCase();
     const nombreCliente = document.getElementById("nombreCliente").value.trim().toUpperCase();
     const apellidoCliente = document.getElementById("apellidoCliente").value.trim().toUpperCase();
     const tipoServicio = document.getElementById("tipoServicio").value;
+    const medioPagoSelected = document.getElementById("medioPago").value;
     const valorBruto = document.getElementById("valorBruto").value.trim();
     const valorVentaPublico = document.getElementById("valorVentaPublico").value.trim();
 
@@ -90,7 +89,12 @@ function guardarVenta() {
     }
 
     if (!tipoServicio) {
-        alert("Por favor, selecciona un tipo de servicio.");
+        alert("Por favor, selecciona un servicio de la lista.");
+        return;
+    }
+
+    if (!medioPagoSelected) {
+        alert("Por favor, selecciona un medio de pago.");
         return;
     }
 
