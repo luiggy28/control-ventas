@@ -35,25 +35,30 @@ function calcularValores() {
         comisionCredito = 0.045 * valorVentaPublico;
     }
 
-    const comisionTotal = valorVentaPublico - valorBruto;
+    const comisionTotalBruta = valorVentaPublico - valorBruto - comisionDebito - comisionCredito;
 
     let valorIVAValue = 0;
+    let comisionTotalSinIVA = comisionTotalBruta;
+
     if (incluirIVA) {
-        valorIVAValue = 0.19 * (comisionTotal + comisionDebito + comisionCredito);
+        comisionTotalSinIVA = comisionTotalBruta / 1.19;
+        valorIVAValue = comisionTotalBruta - comisionTotalSinIVA;
     }
 
-    const comisionColaboradorValue = (valorVentaPublico - valorBruto) * 0.13;
-    const comisionEmpresaValue = (valorVentaPublico - valorBruto) * 0.87;
-    const totalPagar = valorVentaPublico + valorIVAValue + comisionDebito + comisionCredito;
+    const comisionColaboradorValue = comisionTotalSinIVA * 0.13;
+    const comisionEmpresaValue = comisionTotalSinIVA * 0.87;
+
+    const totalPagar = valorVentaPublico + comisionDebito + comisionCredito;
 
     document.getElementById("valorIVA").value = formatCurrency(valorIVAValue);
-    document.getElementById("comisionTotal").value = formatCurrency(comisionTotal);
+    document.getElementById("comisionTotal").value = formatCurrency(comisionTotalSinIVA);
     document.getElementById("comisionColaborador").value = formatCurrency(comisionColaboradorValue);
     document.getElementById("comisionEmpresa").value = formatCurrency(comisionEmpresaValue);
     document.getElementById("valorPagoDebito").value = formatCurrency(comisionDebito);
     document.getElementById("valorPagoCredito").value = formatCurrency(comisionCredito);
     document.getElementById("valorTotalPagar").value = formatCurrency(totalPagar);
 }
+
 
 function guardarVenta() {
     const nombreColaborador = document.getElementById("nombreColaborador").value.trim().toUpperCase();
